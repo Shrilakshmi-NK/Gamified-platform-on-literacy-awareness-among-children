@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stories</title>
+    <link rel="stylesheet" href="{% static 'css/animations.css' %}">
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #1b2735, #557087, #6c8ea5);
+            background-image: url("{% static 'images/rest.jpeg' %}");
+            background-size: cover;
+            background-position: center;
+            color: #228B22; /* Leaf Green */
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #ffffff;
+            font-size: 3.5em;
+        }
+
+        .story {
+            background: #0f3460; /* Cotton White */
+            padding: 20px;
+            margin: 10px auto;
+            border-radius: 8px;
+            max-width: 600px;
+            border: 2px solid #ffffff;
+        }
+
+        a {
+            color: #ffffff; /* Sky Blue */
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        a:hover {
+            color: #fcfffc;
+        }
+
+        /* Quiz Button */
+        .quiz-btn {
+            display: inline-block;
+            padding: 10px 20px;
+            margin-top: 10px;
+            background-color: #1e90ff; /* Dodger Blue */
+            color: #ffffff;
+            border: none;
+            border-radius: 8px;
+            font-size: 1em;
+            text-align: center;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s;
+        }
+
+        .quiz-btn:hover {
+            background-color: #1c7cd6;
+            transform: scale(1.05);
+        }
+
+        /* Video Container Section */
+        .videos-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 50px; /* Increased space between video containers */
+            margin-top: 40px;
+            position: relative;
+            margin-bottom: 100px; /* Added extra space at the bottom */
+        }
+
+        /* Create a criss-cross layout using grid */
+        .video-box {
+            background-color: #0f3460;
+            border: 2px solid #ffffff;
+            border-radius: 8px;
+            padding: 15px;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .video-box iframe {
+            width: 100%;
+            height: 200px;
+            border-radius: 8px;
+        }
+
+        .video-box p {
+            color: #ffffff;
+            font-size: 1.1em;
+            margin-top: 10px;
+        }
+
+        /* Paths between containers */
+        .videos-container::before {
+            content: '';
+            position: absolute;
+            top: -10px;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%20200%20200%22%3E%3Cpath%20d=%22M0%2C0%20C50%2C50%20C150%2C50%20C200%2C100%20C150%2C150%20C50%2C150%20L0%2C200%20%22%20stroke=%22white%22%20stroke-width=%221%22%20fill=%22transparent%22/%3E%3C/svg%3E');
+            z-index: 0;
+        }
+
+        /* Button for video link */
+        .video-btn {
+            display: inline-block;
+            padding: 10px 20px;
+            margin-top: 10px;
+            background-color: #1e90ff; /* Dodger Blue */
+            color: #ffffff;
+            border: none;
+            border-radius: 8px;
+            font-size: 1em;
+            text-align: center;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s;
+        }
+
+        .video-btn:hover {
+            background-color: #1c7cd6;
+            transform: scale(1.05);
+        }
+
+        /* Back Button */
+        .back-button {
+            display: inline-block;
+            padding: 15px 30px;
+            margin-top: 20px;
+            text-decoration: none;
+            background-color: #FF6347; /* Tomato Red */
+            color: white;
+            border-radius: 8px;
+            font-size: 1.2em;
+            font-weight: bold;
+            text-align: center;
+            transition: background-color 0.3s ease, transform 0.2s;
+        }
+
+        .back-button:hover {
+            background-color: #e55347;
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+    <h1>Stories</h1>
+    
+    <!-- Existing Stories Section -->
+    {% for story in stories %}
+    <div class="story">
+        <h2>{{ story.title }}</h2>
+        <p>{{ story.content }}</p>
+        <a href="{% url 'quiz' story.id %}" class="quiz-btn">Take Quiz</a>
+    </div>
+    {% endfor %}
+
+    <!-- Video Containers -->
+    <div class="videos-container">
+        <div class="video-box">
+            <iframe src="https://www.youtube.com/embed/HHNfaPuoZHM" frameborder="0" allowfullscreen></iframe>
+            <p>What is children's right?</p>
+            <a href="{% url 'quiz' 1 %}" class="video-btn">Take Quiz</a> <!-- Link to quiz page -->
+        </div>
+        <div class="video-box">
+            <iframe src="https://www.youtube.com/embed/HCYLdtug8sk" frameborder="0" allowfullscreen></iframe>
+            <p>Why is children's right important?</p>
+            <a href="{% url 'quiz' 2 %}" class="video-btn">Take Quiz</a>
+        </div>
+        <div class="video-box">
+            <iframe src="https://www.youtube.com/embed/MC3hjfZgNkA" frameborder="0" allowfullscreen></iframe>
+            <p>Child protection</p>
+            <a href="{% url 'quiz' 3 %}" class="video-btn">Take Quiz</a>
+        </div>
+        <div class="video-box">
+            <iframe src="https://www.youtube.com/embed/NSVbLuq1CvM" frameborder="0" allowfullscreen></iframe>
+            <p>Legislations for child welfare</p>
+            <a href="{% url 'quiz' 4 %}" class="video-btn">Take Quiz</a>
+        </div>
+        <div class="video-box">
+            <iframe src="https://www.youtube.com/embed/Yy0035RcNoU" frameborder="0" allowfullscreen></iframe>
+            <p>Child fundamental rights</p>
+            <a href="{% url 'quiz' 5 %}" class="video-btn">Take Quiz</a>
+        </div>
+    </div>
+
+    <!-- Back to Dashboard -->
+    <a href="{% url 'dashboard' %}" class="back-button">Back to Dashboard</a>
+</body>
+</html>

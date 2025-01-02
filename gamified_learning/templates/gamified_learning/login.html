@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link rel="stylesheet" href="{% static 'css/animations.css' %}">
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #1b2735, #557087, #6c8ea5);
+             /* background-image: url("{% static 'images/background.jpeg' %}");----Background image */
+            background-size: cover; /* Ensures the image covers the entire screen */
+            background-position: center; /* Centers the image */
+            background-repeat: no-repeat; /* Prevents the image from repeating */
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .login-container {
+            background-color: rgba(15, 52, 96, 0.8);
+            padding: 60px;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(255, 255, 255, 0.5);
+            width: 400px;
+        }
+        .login-container h2 {
+            margin: 0 0 20px;
+            text-align: center;
+            font-size: 3.0em;
+            color: #ffffff;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-size: 17px;
+            color: #ffffff;
+        }
+        .form-group input {
+            width: 100%;
+            padding: 10px;
+            border: 2px solid #ccc;
+            border-radius: 50px;
+        }
+
+        .login-btn, .forgot-password-btn, .guest-btn {
+            width: 100%;
+            padding: 10px;
+            color: #ffffff;
+            border: none;
+            border-radius: 50px;
+            font-size: 1em;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        .login-btn {
+            background-color: #4bed00;
+        }
+        .login-btn:hover {
+            background-color: #1f7c03;
+        }
+        .forgot-password-btn {
+            background-color: #ff8c00;
+        }
+        .forgot-password-btn:hover {
+            background-color: #cc7000;
+        }
+        .guest-btn {
+            background-color: #007bff;
+        }
+        .guest-btn:hover {
+            background-color: #0056b3;
+        }
+        .register-link {
+            display: block;
+            margin-top: 15px;
+            font-size: 14px;
+            color: #ffffff;
+            text-decoration: none;
+        }
+        .register-link:hover {
+            text-decoration: underline;
+        }
+        .error-message {
+            color: red;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <h2>Login</h2>
+        <form action="/login" method="post">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" placeholder="Enter your username" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" placeholder="Enter your password" required>
+            </div>
+            <button type="submit" class="login-btn">Login</button>
+        </form>
+
+        {% if error %}
+            <p class="error-message">{{ error }}</p>
+        {% endif %}
+
+        <button class="forgot-password-btn" onclick="location.href='/forgot-password'">Forgot Password?</button>
+        <button class="guest-btn" onclick="location.href='/guest-login'">Continue as Guest</button>
+        <a href="/register" class="register-link">Don't have an account? Register here</a>
+    </div>
+</body>
+</html>
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link rel="stylesheet" href="{% static 'css/animations.css' %}">
+
+    <style>
+      body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #1b2735, #557087, #6c8ea5),
+                        url("{% static 'images/login.jpeg?v=1' %}");
+            background-size: cover; /* Ensures the image covers the entire screen */
+            background-position: center; /* Centers the image */
+            background-repeat: no-repeat; /* Prevents the image from repeating */
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .login-container {
+            background-color: rgba(15, 52, 96, 0.8);;
+            padding: 60px;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgb(255, 255, 255,0.5);
+            width: 400px;
+        }
+        .login-container h2 {
+            margin: 0 0 20px;
+            text-align: center;
+            font-size: 3.0em;
+            color: #ffffff; /* Changed text color to white */
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-size: 17px;
+            color: #ffffff; /* Changed label color to white */
+        }
+        .form-group input {
+            width: 90%;
+            padding: 10px;
+            border: 2px solid #ccc;
+            border-radius: 50px;
+        }
+
+        .login-btn, .forgot-password-btn, .guest-btn {
+            width: 100%;
+            padding: 10px;
+            color: #ffffff;
+            border: none;
+            border-radius: 50px;
+            font-size: 1em;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        .login-btn {
+            background-color: #4bed00;
+        }
+        .login-btn:hover {
+            background-color: #1f7c03;
+        }
+        .forgot-password-btn {
+            background-color: #ff8c00;
+        }
+        .forgot-password-btn:hover {
+            background-color: #cc7000;
+        }
+        .guest-btn {
+            background-color: #007bff;
+        }
+        .guest-btn:hover {
+            background-color: #0056b3;
+        }
+        .register-link {
+            display: block;
+            margin-top: 15px;
+            font-size: 14px;
+            color: #ffffff;
+            text-decoration: none;
+        }
+        .register-link:hover {
+            text-decoration: underline;
+        }
+        .error-message {
+            color: red;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <h2>Login</h2>
+        <form action="/login" method="post">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" placeholder="Enter your username" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" placeholder="Enter your password" required>
+            </div>
+            <button type="submit" class="login-btn">Login</button>
+        </form>
+
+        {% if error %}
+            <p class="error-message">{{ error }}</p>
+        {% endif %}
+
+        <button class="forgot-password-btn" onclick="location.href='/forgot-password'">Forgot Password?</button>
+        <button class="guest-btn" onclick="location.href='/guest-login'">Continue as Guest</button>
+        <a href="/register" class="register-link">Don't have an account? Register here</a>
+    </div>
+</body>
+</html> -->

@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feedback</title>
+    <link rel="stylesheet" href="{% static 'css/animations.css' %}">
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #1b2735, #495b6b, #6c8ea5); /* Gradient background */
+            color: #eaeaea;
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+            color: #ffffff;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 3.5em;
+        }
+        form {
+            max-width: 500px;
+            margin: 40px auto;
+            background: #0f3460;
+            padding: 30px;
+            border-radius: 8px;
+            border: 2px solid #495b6b;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        textarea {
+            width: 100%;
+            height: 100px;
+            padding: 10px; /* Reduced padding for better usability */
+            margin-bottom: 20px; /* Add spacing below */
+            border: none;
+            border-radius: 10px;
+            background: #1b2735;
+            color: #eaeaea;
+            resize: none;
+        }
+        textarea:focus {
+            outline: none;
+            box-shadow: 0 0 5px #ffffff;
+        }
+        button {
+            display: block;
+            width: 100%;
+            background: #4CAF50;
+            color: #ffffff;
+            padding: 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        button:hover {
+            background: #45A049;
+        }
+        .back-button {
+            display: inline-block;
+            padding: 15px 30px;
+            margin-top: 20px;
+            text-decoration: none;
+            background-color: #FF6347;
+            color: white;
+            border-radius: 8px;
+            font-size: 1.2em;
+            font-weight: bold;
+            text-align: center;
+            transition: background-color 0.3s ease, transform 0.2s;
+        }
+        .back-button:hover {
+            background-color: #e55347;
+            transform: scale(1.05);
+        }
+        .back-button:active {
+            transform: translateY(2px);
+        }
+    </style>
+</head>
+<body>
+    <h1>Submit Your Feedback</h1>
+    <form method="post">
+        {% csrf_token %}
+        <textarea name="comments" placeholder="Share your thoughts..." required></textarea>
+        <button type="submit">Submit</button>
+        <a href="{% url 'dashboard' %}" class="back-button">Back to Dashboard</a>
+    </form>
+</body>
+</html>
+
+
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feedback</title>
+    <link rel="stylesheet" href="{% static 'css/animations.css' %}">
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #1b2735, #495b6b, #6c8ea5); /* Gradient background */
+            color: #eaeaea; /* Light Gray for contrast */
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+            color: #ffffff;
+            font-family:Arial, Helvetica, sans-serif;
+            font-size: 3.5em;
+        }
+        form {
+            max-width: 500px;
+            margin: 40px auto;
+            background: #0f3460; /* Deep Blue */
+            padding: 30px;
+            border-radius: 8px;
+            border: 2px solid #495b6b;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        textarea {
+            width: 100%;
+            height: 100px;
+            padding: 50px;
+            margin: 0; /* Remove margin to avoid gaps */
+            border: none; /* Remove border */
+            border-radius: 10px;
+            background: #1b2735;
+            color: #eaeaea;
+            box-sizing: border-box;
+            resize: none; /* Prevent resizing */
+        }
+        textarea:focus {
+            outline: none; /* Remove focus outline */
+            box-shadow: 0 0 5px #ffffff; /* Optional focus shadow */
+        }
+        button {
+            display: block; /* Ensures block layout for alignment */
+            width: 100%; /* Match button width to textarea */
+            background: #4CAF50; /* Green */
+            color: #ffffff;
+            padding: 15px;
+            margin: 0; /* Remove margin to avoid gaps */
+            border: none; /* Remove border */
+            border-radius: 5px; /* Match textarea rounding */
+            cursor: pointer;
+            font-weight: bold;
+        }
+        button:hover {
+            background: #45A049; /* Darker Green */
+        }
+        button:focus {
+            outline: none; /* Remove focus outline */
+        }
+                /* CSS for Back Button */
+        .back-button {
+            display: inline-block;
+            padding: 15px 30px;
+            margin-top: 20px;
+            text-decoration: none;
+            background-color: #FF6347; /* Tomato Red */
+            color: white;
+            border-radius: 8px;
+            font-size: 1.2em;
+            font-weight: bold;
+            text-align: center;
+            transition: background-color 0.3s ease, transform 0.2s;
+        }
+
+        .back-button:hover {
+            background-color: #e55347; /* Darker Red */
+            transform: scale(1.05); /* Slightly enlarge on hover */
+        }
+
+        .back-button:active {
+            transform: translateY(2px);
+        }
+    </style>
+</head>
+<body>
+    <h1>Submit Your Feedback</h1>
+    <form method="post">
+        <textarea name="comments" placeholder="Share your thoughts..." required></textarea>
+        <button type="submit">Submit</button>
+        <a href="{% url 'dashboard' %}" class="back-button">Back to Dashboard</a>
+    </form>
+</body>
+</html> -->
+
+
+<!--<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feedback</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #FFF8DC; /* Cotton White */
+            color: #228B22; /* Leaf Green */
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+        }
+        form {
+            max-width: 500px;
+            margin: 20px auto;
+            background: #FFEB3B; /* Buttercup Yellow */
+            padding: 15px;
+            border-radius: 8px;
+            border: 2px solid #228B22;
+        }
+        textarea {
+            width: 100%;
+            height: 100px;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #228B22;
+        }
+        button {
+            background: #00BFFF; /* Sky Blue */
+            color: #FFF8DC;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #228B22;
+        }
+    </style>
+</head>
+<body>
+    <h1>Submit Your Feedback</h1>
+    <form method="post">
+        {% csrf_token %}
+        <textarea name="comments" placeholder="Share your thoughts..."></textarea>
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>-->
+
+
+<!--<!DOCTYPE html>
+<html>
+<head>
+    <title>Feedback</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <script src="{% static 'js/main.js' %}" defer></script>
+</head>
+<body>
+    <h1>Share Your Feedback!</h1>
+    <form>
+        <textarea placeholder="Enter your feedback here..." rows="5" cols="40"></textarea><br>
+        <button type="submit">Submit Feedback</button>
+    </form>
+</body>
+</html>-->
+

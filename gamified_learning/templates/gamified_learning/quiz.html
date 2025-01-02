@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz</title>
+    <link rel="stylesheet" href="{% static 'css/animations.css' %}">
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #1b2735, #557087, #6c8ea5); 
+            padding: 20px;
+            color: #ffffff;
+        }
+        h1 {
+            text-align: center;
+            color: #ffffff;
+            font-size: 3.5em;
+        }
+        .quiz {
+            background: #0f3460;
+            padding: 20px;
+            margin: 10px auto;
+            border-radius: 8px;
+            max-width: 600px;
+            border: 2px solid #ffffff;
+        }
+        button {
+            background: #00BFFF;
+            color: #FFF8DC;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #228B22;
+        }
+        .question {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Quiz for {{ story.title }}</h1>
+    <form method="post">
+        {% csrf_token %}
+        {% for quiz in quizzes %}
+        <div class="quiz">
+            <div class="question">
+                <h2>{{ quiz.question }}</h2>
+                {% for option in quiz.options %}
+                <div>
+                    <input 
+                        type="radio" 
+                        id="quiz_{{ quiz.id }}_{{ forloop.counter }}" 
+                        name="answer_{{ quiz.id }}" 
+                        value="{{ option }}"
+                        required>
+                    <label for="quiz_{{ quiz.id }}_{{ forloop.counter }}">{{ option }}</label>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        {% endfor %}
+        <div style="text-align: center; margin-top: 20px;">
+            <button type="submit">Submit Quiz</button>
+        </div>
+    </form>
+</body>
+</html>
+
+
+
+
+<!-- <html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz</title>
+    <link rel="stylesheet" href="{% static 'css/animations.css' %}">
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #1b2735, #557087, #6c8ea5); 
+            padding: 20px;
+            color: #ffffff; /* Leaf Green */
+        }
+        h1 {
+            text-align: center;
+            color: #ffffff;
+            font-size: 3.5em;
+        }
+        .quiz {
+            background:#0f3460; /* Buttercup Yellow */
+            padding: 20px;
+            margin: 10px auto;
+            border-radius: 8px;
+            max-width: 600px;
+            border: 2px solid #ffffff;
+        }
+        button {
+            background: #00BFFF; /* Sky Blue */
+            color: #FFF8DC;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #228B22;
+        }
+    </style>
+</head>
+<body>
+    <h1>Quiz for {{ story.title }}</h1>
+    {% for quiz in quiz %}
+    <div class="quiz">
+        <h2>{{ quiz.question }}</h2>
+        <form method="post">
+            {% csrf_token %}
+            {% for option in quiz.options %}
+            <div>
+                <input type="radio" id="{{ option }}" name="answer" value="{{ option }}">
+                <label for="{{ option }}">{{ option }}</label>
+            </div>
+            {% endfor %}
+            <button type="submit">Submit Answer</button>
+        </form>
+    </div>
+    {% endfor %}
+</body>
+</html> -->
+
+<!--<!DOCTYPE html>
+<html>
+<head>
+    <title>Quizzes</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <script src="{% static 'js/main.js' %}" defer></script>
+</head>
+<body>
+    <h1>Choose a Quiz!</h1>
+    <div class="card">
+        <h2>Story 1 Quiz</h2>
+        <button>Start Quiz</button>
+    </div>
+    <div class="card">
+        <h2>Story 2 Quiz</h2>
+        <button>Start Quiz</button>
+    </div>
+</body>
+</html>-->
+
+
+<!--<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #FFF8DC; /* Cotton White */
+            padding: 20px;
+            color: #228B22; /* Leaf Green */
+        }
+        h1 {
+            text-align: center;
+            color: #228B22;
+        }
+        .quiz {
+            background: #FFEB3B; /* Buttercup Yellow */
+            padding: 20px;
+            margin: 10px auto;
+            border-radius: 8px;
+            max-width: 600px;
+            border: 2px solid #228B22;
+        }
+        button {
+            background: #00BFFF; /* Sky Blue */
+            color: #FFF8DC;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #228B22;
+        }
+    </style>
+</head>
+<body>
+    <h1>Quiz for {{ story.title }}</h1>
+    {% for quiz in quizzes %}
+    <div class="quiz">
+        <h2>{{ quiz.question }}</h2>
+        <form method="post">
+            {% csrf_token %}
+            {% for option in quiz.options %}
+            <div>
+                <input type="radio" id="{{ option }}" name="answer" value="{{ option }}">
+                <label for="{{ option }}">{{ option }}</label>
+            </div>
+            {% endfor %}
+            <button type="submit">Submit Answer</button>
+        </form>
+    </div>
+    {% endfor %}
+</body>
+</html>-->
+
+<!--<!DOCTYPE html>
+<html>
+<head>
+    <title>Quizzes</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <script src="{% static 'js/main.js' %}" defer></script>
+</head>
+<body>
+    <h1>Choose a Quiz!</h1>
+    <div class="card">
+        <h2>Story 1 Quiz</h2>
+        <button>Start Quiz</button>
+    </div>
+    <div class="card">
+        <h2>Story 2 Quiz</h2>
+        <button>Start Quiz</button>
+    </div>
+</body>
+</html>-->
+

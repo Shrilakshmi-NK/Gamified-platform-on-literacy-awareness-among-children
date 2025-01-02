@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leaderboard</title>
+    <link rel="stylesheet" href="{% static 'css/animations.css' %}">
+
+    <style>
+        body {
+             font-family: Arial, sans-serif;
+             background: linear-gradient(135deg, #1b2735, #557087, #6c8ea5); /* Buttercup Yellow */
+             color: #f8f8f8; /* Leaf Green */
+        }
+        h1 {
+            text-align: center;
+            font-size: 3.5em;
+        }
+        table {
+            margin: 20px auto;
+            border-collapse: collapse;
+            width: 80%;
+        }
+        th, td {
+            border: 1px solid  #0f3460;
+            padding: 10px;
+            text-align: center;
+        }
+        th {
+            background-color:  #0f3460;
+            color: white;
+        }
+        td {
+            background-color: #FFF8DC; /* Cotton White */
+        }
+    </style>
+</head>
+<body>
+    <h1>Leaderboard</h1>
+    <table>
+        <tr>
+            <th>Rank</th>
+            <th>Username</th>
+            <th>Score</th>
+        </tr>
+        {% for user in users %}
+        <tr>
+            <td>{{ forloop.counter }}</td>
+            <td>{{ user.username }}</td>
+            <td>{{ user.score }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leaderboard</title>
+    <style>
+        body {
+             font-family: Arial, sans-serif;
+             background: linear-gradient(135deg, #1b2735, #557087, #6c8ea5); /* Buttercup Yellow */
+             color: #f8f8f8; /* Leaf Green */
+        }
+        h1 {
+            text-align: center;
+            font-size: 3.5em;
+        }
+        table {
+            margin: 20px auto;
+            border-collapse: collapse;
+            width: 80%;
+        }
+        th, td {
+            border: 1px solid  #0f3460;
+            padding: 10px;
+            text-align: center;
+        }
+        th {
+            background-color:  #0f3460;
+            color: white;
+        }
+        td {
+            background-color: #FFF8DC; /* Cotton White */
+        }
+    </style>
+</head>
+<body>
+    <h1>Leaderboard</h1>
+    <table>
+        <tr>
+            <th>Rank</th>
+            <th>Username</th>
+            <th>Score</th>
+        </tr>
+        {% for user in users %}
+        <tr>
+            <td>{{ forloop.counter }}</td>
+            <td>{{ user.username }}</td>
+            <td>{{ user.score }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html> -->
+
+
+<!--<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leaderboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #FFEB3B; /* Buttercup Yellow */
+            color: #228B22; /* Leaf Green */
+        }
+        h1 {
+            text-align: center;
+        }
+        table {
+            margin: 20px auto;
+            border-collapse: collapse;
+            width: 80%;
+        }
+        th, td {
+            border: 1px solid #228B22;
+            padding: 10px;
+            text-align: center;
+        }
+        th {
+            background-color: #228B22;
+            color: white;
+        }
+        td {
+            background-color: #FFF8DC; /* Cotton White */
+        }
+    </style>
+</head>
+<body>
+    <h1>Leaderboard</h1>
+    <table>
+        <tr>
+            <th>Rank</th>
+            <th>Username</th>
+            <th>Score</th>
+        </tr>
+        {% for user in users %}
+        <tr>
+            <td>{{ forloop.counter }}</td>
+            <td>{{ user.username }}</td>
+            <td>{{ user.score }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>-->
+
+<!--<!DOCTYPE html>
+<html>
+<head>
+    <title>Leaderboard</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <script src="{% static 'js/main.js' %}" defer></script>
+</head>
+<body>
+    <h1>Leaderboard</h1>
+    <ul>
+        <li>1. <strong>Player 1</strong> - 100 points</li>
+        <li>2. <strong>Player 2</strong> - 90 points</li>
+        <li>3. <strong>Player 3</strong> - 80 points</li>
+    </ul>
+    <img src="{% static 'images/trophy_icon.png' %}" alt="Trophy Icon" class="icon">
+</body>
+</html>-->
+

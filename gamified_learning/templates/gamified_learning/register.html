@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+    <style>
+        /* Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            display: flex;
+            justify-content: center; /* Center horizontally */
+            align-items: center; /* Center vertically */
+            min-height: 100vh;
+            background: linear-gradient(135deg, #1b4779, #708090);
+        }
+
+        .container {
+            display: flex;
+            justify-content: center; /* Center the right-section */
+            align-items: center; /* Center the right-section vertically */
+            width: 100%;
+            max-width: 1200px;
+            background: #153f76;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            overflow: hidden;
+        }
+
+        /* Right Section - Form */
+        .right-section {
+            padding: 30px 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            width: 100%; /* Ensures that the form takes full available width */
+            max-width: 500px; /* Limits the max width of the form */
+        }
+
+        .right-section h2 {
+            font-size: 2em;
+            margin-bottom: 10px;
+            color: #ffffff;
+            text-align: center; /* Center the title */
+        }
+
+        .right-section p {
+            color: #ffffff;
+            margin-bottom: 20px;
+            text-align: center; /* Center the text */
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .form-group {
+            flex: 1 1 100%; /* Ensure each field takes full width */
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 0.9em;
+            color: #ffffff;
+            margin-bottom: 5px;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ffffff;
+            border-radius: 5px;
+            font-size: 0.9em;
+        }
+
+        .form-group input:focus {
+            border-color: #6a11cb;
+            outline: none;
+        }
+
+        /* Gender Section */
+        .gender-group {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .gender-group label {
+            margin: 0;
+            color:white;
+        }
+
+        /* Submit Button */
+        .form-button {
+            width: 100%;
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        button {
+            background-color: #19e75a;
+            color: #fff;
+            padding: 10px 20px;
+            font-size: 1em;
+            font-weight: bold;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #1b5db0;
+        }
+
+        /* Link */
+        .link {
+            text-align: center;
+            margin-top: 15px;
+            font-size: 0.9em;
+            color: #fffdfd;
+        }
+
+        .link a {
+            text-decoration: none;
+            color: #2575fc;
+            font-weight: bold;
+        }
+
+        .link a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Right Section (Form) -->
+        <div class="right-section">
+            <h2>Registration</h2>
+            <p>Fill in the details to create your account</p>
+
+            <form>
+                <!-- Full Name -->
+                <div class="form-group">
+                    <label for="full-name">Full Name</label>
+                    <input type="text" id="full-name" placeholder="Enter your name" required>
+                </div>
+
+                <!-- Email -->
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" placeholder="Enter your email" required>
+                </div>
+
+                <!-- Phone Number -->
+                <div class="form-group">
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" id="phone" placeholder="Enter your phone number" required>
+                </div>
+
+                <!-- Country -->
+                <div class="form-group">
+                    <label for="country">Country</label>
+                    <input type="text" id="country" placeholder="Enter your country" required>
+                </div>
+
+                <!-- City -->
+                <div class="form-group">
+                    <label for="city">City</label>
+                    <input type="text" id="city" placeholder="Enter your city" required>
+                </div>
+
+                <!-- Password -->
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" placeholder="Enter your password" required>
+                </div>
+
+                <!-- Confirm Password -->
+                <div class="form-group">
+                    <label for="confirm-password">Confirm Password</label>
+                    <input type="password" id="confirm-password" placeholder="Confirm your password" required>
+                </div>
+
+                <!-- Gender -->
+                <div class="gender-group">
+                    <label>Gender:</label>
+                    <label><input type="radio" name="gender" value="male"> Male</label>
+                    <label><input type="radio" name="gender" value="female"> Female</label>
+                    <label><input type="radio" name="gender" value="other"> Other</label>
+                    <label><input type="radio" name="gender" value="prefer-not"> Prefer not to say</label>
+                </div>
+
+                <!-- Submit Button -->
+                <div class="form-button">
+                    <button type="submit">Register</button>
+                </div>
+            </form>
+
+            <div class="link">
+                Already have an account? <a href="#">Sign in</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>s
